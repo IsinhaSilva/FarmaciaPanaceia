@@ -47,7 +47,7 @@ public class TelaInicialGUI extends javax.swing.JFrame {
 
         btnEditarProdutos.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarProdutos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnEditarProdutos.setText("Editar");
+        btnEditarProdutos.setText("Consultar");
         btnEditarProdutos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
         btnEditarProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEditarProdutos.addActionListener(new java.awt.event.ActionListener() {

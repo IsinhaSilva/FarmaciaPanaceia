@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 16-Fev-2023 às 19:29
+-- Tempo de geração: 09-Mar-2023 às 20:25
 -- Versão do servidor: 5.5.21
 -- versão do PHP: 7.4.26
 
@@ -84,14 +84,15 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `endRua` varchar(30) DEFAULT NULL,
   `endNum` int(5) DEFAULT NULL,
   PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `cliente`
 --
 
 INSERT INTO `cliente` (`idCliente`, `cpf`, `cep`, `nomeCliente`, `genero`, `telefone`, `dataNasc`, `convenio`, `endRua`, `endNum`) VALUES
-(1, '156.465.456-45', '22345-352', 'Julia', 'Feminino', '(34)5646-5465', '13/02/2020', 0, 'asdasdasd', 5555);
+(1, '156.465.456-45', '22345-352', 'Julia', 'Feminino', '(34)5646-5465', '13/02/2020', 0, 'asdasdasd', 5555),
+(2, '251.365.496-69', '38745-045', 'Milena', 'Feminino', '(34)9981-3312', '06/08/2001', 1, 'Equador', 2352);
 
 -- --------------------------------------------------------
 
@@ -124,10 +125,18 @@ CREATE TABLE IF NOT EXISTS `produto` (
   `idProduto` int(4) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) NOT NULL,
   `fornecedores` varchar(50) NOT NULL,
-  `precos` double DEFAULT NULL,
+  `valorUnidade` double DEFAULT NULL,
+  `quantidade` int(10) NOT NULL,
   `valorEstoque` double DEFAULT NULL,
   PRIMARY KEY (`idProduto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `produto`
+--
+
+INSERT INTO `produto` (`idProduto`, `nome`, `fornecedores`, `valorUnidade`, `quantidade`, `valorEstoque`) VALUES
+(1, 'Caderno', 'Tilibra', 0, 5, 5);
 
 --
 -- Restrições para despejos de tabelas

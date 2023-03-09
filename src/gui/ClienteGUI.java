@@ -222,6 +222,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         boder1.add(jLabel11);
         jLabel11.setBounds(40, 520, 160, 22);
 
+        jRadioGeneroFem.setBackground(new java.awt.Color(255, 255, 255));
         buttGpGenero.add(jRadioGeneroFem);
         jRadioGeneroFem.setSelected(true);
         jRadioGeneroFem.setText("Feminino");
@@ -234,6 +235,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         boder1.add(jRadioGeneroFem);
         jRadioGeneroFem.setBounds(40, 550, 120, 23);
 
+        jRadioGeneroMasc.setBackground(new java.awt.Color(255, 255, 255));
         buttGpGenero.add(jRadioGeneroMasc);
         jRadioGeneroMasc.setText("Masculino");
         jRadioGeneroMasc.addActionListener(new java.awt.event.ActionListener() {
@@ -244,6 +246,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         boder1.add(jRadioGeneroMasc);
         jRadioGeneroMasc.setBounds(170, 550, 100, 23);
 
+        jRadioConv.setBackground(new java.awt.Color(255, 255, 255));
         jRadioConv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioConvActionPerformed(evt);
@@ -308,9 +311,9 @@ public class ClienteGUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(721, Short.MAX_VALUE)
+                .addContainerGap(712, Short.MAX_VALUE)
                 .addComponent(boder1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(646, Short.MAX_VALUE))
+                .addContainerGap(712, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,18 +366,14 @@ public class ClienteGUI extends javax.swing.JFrame {
 //        TableClienteGUI tc = new TableClienteGUI();
         
         new TableClienteGUI().setVisible(true);
-        
-        
-
-        
-        
+            
     }//GEN-LAST:event_btEditarActionPerformed
 
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
        
         Cliente cliente = new Cliente();
         
-        cliente.setCep          (formattedCep.getText());
+        cliente.setCep          (formattedCep.getText());     
         cliente.setCpf          (formattedCpf.getText());
         cliente.setNomeCliente  (txtNomeCliente.getText());
         
@@ -407,7 +406,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         formattedCep.setText("");
         formattedCpf.setText("");
         formattedDataNasc.setText("");
-        formattedTelefone.setText("Digite o número do telefone");
+        formattedTelefone.setText("");
         txtRua.setText("Digite o nome da rua");
         txtNum.setText("Digite o número da casa");
         buttGpGenero.clearSelection();

@@ -18,7 +18,8 @@ public class ProdutoDAO {
         int idProduto;
         String nome;
         String fornecedores;
-        double precos;
+        int quantidade;
+        double valorUnidade;
         double valorEstoque;
         
     public ProdutoDAO() {
@@ -26,16 +27,17 @@ public class ProdutoDAO {
     }
     
     public void adiciona(Produto produto){
-        String sql = "INSERT INTO produto(nome, fornecedores, precos, valorEstoque) "
-            + "VALUES (?,?,?,?)";
+        String sql = "INSERT INTO produto(nome, fornecedores, valorUnidade, quantidade, valorEstoque) "
+            + "VALUES (?,?,?,?,?)";
         
         try {
             
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString     (1, produto.getNome());
             stmt.setString     (2, produto.getFornecedores());
-            stmt.setDouble     (3, produto.getPrecos());
-            stmt.setDouble     (4, produto.getValorEstoque()); 
+            stmt.setDouble     (3, produto.getValorUnidade());
+            stmt.setInt        (4, produto.getQuantidade());
+            stmt.setDouble     (5, produto.getValorEstoque()); 
             stmt.execute();
             stmt.close();
         }
@@ -45,14 +47,15 @@ public class ProdutoDAO {
     }
     
     public void update(Produto produto) {
-        String sql = "UPDATE produto SET nome=?, fornecedores=?, precos=?, "
-            + "valorEstoque=?, WHERE idProduto=?";
+        String sql = "UPDATE produto SET nome=?, fornecedores=?, valorUnidade=?, "
+            + "quantidade=?, valorEstoque=?, WHERE idProduto=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString     (1, produto.getNome());
             stmt.setString     (2, produto.getFornecedores());
-            stmt.setDouble     (3, produto.getPrecos()); 
-            stmt.setDouble     (4, produto.getValorEstoque());
+            stmt.setDouble     (3, produto.getValorUnidade());
+            stmt.setInt        (4, produto.getQuantidade());
+            stmt.setDouble     (5, produto.getValorEstoque());
             stmt.execute();
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
             stmt.close();
@@ -88,10 +91,11 @@ public class ProdutoDAO {
             rs = stmt.executeQuery();
             while (rs.next()) {
                 Produto produto = new Produto();
-                produto.setIdProduto(rs.getInt("idProduto"));
-                produto.setNome(rs.getString("nome"));
+                produto.setIdProduto   (rs.getInt   ("idProduto"));
+                produto.setNome        (rs.getString("nome"));
                 produto.setFornecedores(rs.getString("fornecedores"));
-                produto.setPrecos(rs.getDouble("precos"));
+                produto.setValorUnidade(rs.getDouble("valorUnidade"));
+                produto.setQuantidade  (rs.getInt   ("quantidade"));
                 produto.setValorEstoque(rs.getDouble("valorEstoque"));
                 produtos.add(produto);
                 
@@ -103,7 +107,7 @@ public class ProdutoDAO {
         return produtos;
     }
 
-    public void setVisible(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    public void setVisible(boolean b) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }

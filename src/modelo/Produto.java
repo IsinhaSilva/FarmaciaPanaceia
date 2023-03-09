@@ -4,7 +4,8 @@ public class Produto {
     int idProduto;
     String nome;
     String fornecedores;
-    double precos;
+    double valorUnidade;
+    int quantidade;
     double valorEstoque;
 
     public int getIdProduto() {
@@ -31,12 +32,20 @@ public class Produto {
         this.fornecedores = fornecedores;
     }
 
-    public double getPrecos() {
-        return precos;
+    public double getValorUnidade() {
+        return valorUnidade;
     }
 
-    public void setPrecos(double precos) {
-        this.precos = precos;
+    public void setValorUnidade(double valorUnidade) {
+        this.valorUnidade = valorUnidade;
+    }
+    
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public double getValorEstoque() {
