@@ -3,10 +3,9 @@ package modelo;
 public class Produto {
     int idProduto;
     String nome;
-    String fornecedores;
     double valorUnidade;
     int quantidade;
-    double valorEstoque;
+    String bula;
 
     public int getIdProduto() {
         return idProduto;
@@ -22,14 +21,6 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getFornecedores() {
-        return fornecedores;
-    }
-
-    public void setFornecedores(String fornecedores) {
-        this.fornecedores = fornecedores;
     }
 
     public double getValorUnidade() {
@@ -48,13 +39,15 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public double getValorEstoque() {
-        return valorEstoque;
+    public String getBula() {
+        return bula;
     }
 
-    public void setValorEstoque(double valorEstoque) {
-        this.valorEstoque = valorEstoque;
+    public void setBula(String bula) {
+        this.bula = bula;
     }
+
+    
 
     
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 09-Mar-2023 às 20:25
+-- Tempo de geração: 17-Mar-2023 às 20:06
 -- Versão do servidor: 5.5.21
 -- versão do PHP: 7.4.26
 
@@ -46,28 +46,6 @@ CREATE TABLE IF NOT EXISTS `cadastrositeapp` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `caixa`
---
-
-DROP TABLE IF EXISTS `caixa`;
-CREATE TABLE IF NOT EXISTS `caixa` (
-  `idCaixa` int(11) NOT NULL AUTO_INCREMENT,
-  `idFuncionario` int(11) DEFAULT NULL,
-  `idProduto` int(11) DEFAULT NULL,
-  `valorEntrada` double DEFAULT NULL,
-  `valorSaida` double DEFAULT NULL,
-  `cpf` varchar(11) NOT NULL,
-  `quantidade` int(11) DEFAULT NULL,
-  `valorTotal` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idCaixa`),
-  KEY `fk_Caixa_Funcionario_idx` (`idFuncionario`),
-  KEY `fk_Caixa_Produto_idx` (`idProduto`),
-  KEY `fk_Caixa_Cliente_idx` (`cpf`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `cliente`
 --
 
@@ -84,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `endRua` varchar(30) DEFAULT NULL,
   `endNum` int(5) DEFAULT NULL,
   PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `cliente`
@@ -92,7 +70,9 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 
 INSERT INTO `cliente` (`idCliente`, `cpf`, `cep`, `nomeCliente`, `genero`, `telefone`, `dataNasc`, `convenio`, `endRua`, `endNum`) VALUES
 (1, '156.465.456-45', '22345-352', 'Julia', 'Feminino', '(34)5646-5465', '13/02/2020', 0, 'asdasdasd', 5555),
-(2, '251.365.496-69', '38745-045', 'Milena', 'Feminino', '(34)9981-3312', '06/08/2001', 1, 'Equador', 2352);
+(2, '251.365.496-69', '38745-045', 'Milena', 'Feminino', '(34)9981-3312', '06/08/2001', 1, 'Equador', 2352),
+(3, '123.465.466-66', '25553-354', 'Ans', 'Feminino', '(34)9996-5265', '23/03/2000', 0, 'Elis', 201),
+(4, '123.456.789-52', '38742-820', 'Vanderley', 'Feminino', '(34)9532-3565', '10/10/2000', 0, 'Rua S', 45);
 
 -- --------------------------------------------------------
 
@@ -124,30 +104,23 @@ DROP TABLE IF EXISTS `produto`;
 CREATE TABLE IF NOT EXISTS `produto` (
   `idProduto` int(4) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) NOT NULL,
-  `fornecedores` varchar(50) NOT NULL,
   `valorUnidade` double DEFAULT NULL,
   `quantidade` int(10) NOT NULL,
-  `valorEstoque` double DEFAULT NULL,
+  `bula` varchar(255) NOT NULL,
   PRIMARY KEY (`idProduto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `produto`
 --
 
-INSERT INTO `produto` (`idProduto`, `nome`, `fornecedores`, `valorUnidade`, `quantidade`, `valorEstoque`) VALUES
-(1, 'Caderno', 'Tilibra', 0, 5, 5);
+INSERT INTO `produto` (`idProduto`, `nome`, `valorUnidade`, `quantidade`, `bula`) VALUES
+(1, 'Caderno', 0, 5, 'Tilibra'),
+(2, 'esmalte', 4, 5, 'esmalte vermelho');
 
 --
 -- Restrições para despejos de tabelas
 --
-
---
--- Limitadores para a tabela `caixa`
---
-ALTER TABLE `caixa`
-  ADD CONSTRAINT `fk_Caixa_Funcionario` FOREIGN KEY (`idFuncionario`) REFERENCES `funcionario` (`idFuncionario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_Caixa_Produto` FOREIGN KEY (`idProduto`) REFERENCES `mydb`.`produto` (`idProduto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `pedido`

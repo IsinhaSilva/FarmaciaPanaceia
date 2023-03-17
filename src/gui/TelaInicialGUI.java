@@ -3,11 +3,10 @@ package gui;
 
 import java.awt.Toolkit;
 import table.TableClienteGUI;
-import table.TableProduto;
+import table.TableProdutoGUI;
 import table.TableFuncionario;
 import gui.ClienteGUI;
 import gui.ProdutoGUI;
-import gui.FuncionarioGUI;
 
 public class TelaInicialGUI extends javax.swing.JFrame {
 
@@ -41,7 +40,7 @@ public class TelaInicialGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(24, 164, 111));
+        jPanel1.setBackground(new java.awt.Color(3, 191, 152));
 
         boder1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -56,7 +55,7 @@ public class TelaInicialGUI extends javax.swing.JFrame {
             }
         });
         boder1.add(btnEditarProdutos);
-        btnEditarProdutos.setBounds(390, 410, 120, 40);
+        btnEditarProdutos.setBounds(400, 410, 120, 40);
 
         btnCadastroProdutos.setBackground(new java.awt.Color(255, 255, 255));
         btnCadastroProdutos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -69,19 +68,19 @@ public class TelaInicialGUI extends javax.swing.JFrame {
             }
         });
         boder1.add(btnCadastroProdutos);
-        btnCadastroProdutos.setBounds(390, 350, 120, 40);
+        btnCadastroProdutos.setBounds(400, 350, 120, 40);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cadastro.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuário.png"))); // NOI18N
         boder1.add(jLabel1);
-        jLabel1.setBounds(520, 330, 140, 130);
+        jLabel1.setBounds(530, 330, 110, 130);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produto.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produtos.png"))); // NOI18N
         boder1.add(jLabel2);
-        jLabel2.setBounds(280, 350, 130, 100);
+        jLabel2.setBounds(290, 320, 120, 160);
 
         btnEditarFunc.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarFunc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnEditarFunc.setText("Editar");
+        btnEditarFunc.setText("Historico");
         btnEditarFunc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
         btnEditarFunc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEditarFunc.addActionListener(new java.awt.event.ActionListener() {
@@ -90,11 +89,11 @@ public class TelaInicialGUI extends javax.swing.JFrame {
             }
         });
         boder1.add(btnEditarFunc);
-        btnEditarFunc.setBounds(120, 410, 120, 40);
+        btnEditarFunc.setBounds(160, 410, 120, 40);
 
         btnCadastroFunc.setBackground(new java.awt.Color(255, 255, 255));
         btnCadastroFunc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnCadastroFunc.setText("Cadastrar");
+        btnCadastroFunc.setText("Abrir");
         btnCadastroFunc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
         btnCadastroFunc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastroFunc.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +102,7 @@ public class TelaInicialGUI extends javax.swing.JFrame {
             }
         });
         boder1.add(btnCadastroFunc);
-        btnCadastroFunc.setBounds(120, 360, 120, 40);
+        btnCadastroFunc.setBounds(160, 360, 120, 40);
 
         btnEditarClientes.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarClientes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -133,26 +132,26 @@ public class TelaInicialGUI extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logoNav.png"))); // NOI18N
         boder1.add(jLabel5);
-        jLabel5.setBounds(210, 80, 430, 210);
+        jLabel5.setBounds(220, 80, 430, 210);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Clientes");
         boder1.add(jLabel4);
-        jLabel4.setBounds(550, 460, 80, 20);
+        jLabel4.setBounds(560, 460, 50, 20);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("Funcionários");
+        jLabel6.setText("Caixa");
         boder1.add(jLabel6);
-        jLabel6.setBounds(30, 460, 80, 20);
+        jLabel6.setBounds(80, 460, 40, 20);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Produtos");
         boder1.add(jLabel7);
-        jLabel7.setBounds(300, 460, 80, 20);
+        jLabel7.setBounds(310, 460, 60, 20);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/funcionarios.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/carrinho.png"))); // NOI18N
         boder1.add(jLabel8);
-        jLabel8.setBounds(20, 350, 120, 120);
+        jLabel8.setBounds(50, 340, 120, 120);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -190,7 +189,7 @@ public class TelaInicialGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEditarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarProdutosActionPerformed
-        new TableProduto().setVisible(true);
+        new TableProdutoGUI().setVisible(true);
     }//GEN-LAST:event_btnEditarProdutosActionPerformed
 
     private void btnCadastroProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroProdutosActionPerformed
@@ -202,7 +201,7 @@ public class TelaInicialGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarFuncActionPerformed
 
     private void btnCadastroFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroFuncActionPerformed
-        new FuncionarioGUI().setVisible(true);
+        new CaixaGUI().setVisible(true);
     }//GEN-LAST:event_btnCadastroFuncActionPerformed
 
     private void btnEditarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClientesActionPerformed

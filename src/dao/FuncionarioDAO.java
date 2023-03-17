@@ -15,14 +15,14 @@ import modelo.Funcionario;
 public class FuncionarioDAO {
     
     private Connection connection;
-        int idFuncionario;
-        int idCliente;
-        String nomeFuncionario;
-        String cpf;
-        String email;
-        int enderecoNumero;
-        String enderecoRua;
-        
+    int idFuncionario;
+    int idCliente;
+    String nomeFuncionario;
+    String cpf;
+    String email;
+    int enderecoNumero;
+    String enderecoRua;
+
     public FuncionarioDAO() {
     this.connection = new ConnectionFactory().getConnection();
     }
@@ -105,7 +105,7 @@ public class FuncionarioDAO {
                 funcionarios.add(funcionario);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
         }
         return funcionarios;

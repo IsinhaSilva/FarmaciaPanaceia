@@ -6,8 +6,6 @@ public class Caixa {
     int idCliente;
     int idProduto;
     int quantidade;
-    double valorEntrada;
-    double valorSaida;
     double valorTotal;
     int idFuncionario;
 
@@ -43,22 +41,6 @@ public class Caixa {
         this.quantidade = quantidade;
     }
 
-    public double getValorEntrada() {
-        return valorEntrada;
-    }
-
-    public void setValorEntrada(double valorEntrada) {
-        this.valorEntrada = valorEntrada;
-    }
-
-    public double getValorSaida() {
-        return valorSaida;
-    }
-
-    public void setValorSaida(double valorSaida) {
-        this.valorSaida = valorSaida;
-    }
-
     public double getValorTotal() {
         return valorTotal;
     }
@@ -74,6 +56,5 @@ public class Caixa {
     public void setIdFuncionario(int idFuncionario) {
         this.idFuncionario = idFuncionario;
     }
-    
-    
+  
 }

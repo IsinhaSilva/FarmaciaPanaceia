@@ -20,8 +20,6 @@ public class CaixaDAO {
     int idCliente;
     int idProduto;
     int quantidade;
-    double valorEntrada;
-    double valorSaida;
     double valorTotal;
     int idFuncionario;
     
@@ -30,7 +28,7 @@ public class CaixaDAO {
     }
     
     public void adiciona(Caixa caixa) {
-        String sql = "INSERT INTO caixa(idCliente,idProduto,quantidade,valorEntrada,valorSaida, "
+        String sql = "INSERT INTO caixa(idCliente,idProduto,quantidade,"
                 + "valorTotal, idFuncionario) VALUES (?,?,?,?,?,?,?,)";
 
         try {
@@ -39,10 +37,8 @@ public class CaixaDAO {
             stmt.setInt     (1, caixa.getIdCliente());
             stmt.setInt     (2, caixa.getIdProduto());
             stmt.setInt     (3, caixa.getQuantidade());
-            stmt.setDouble  (4, caixa.getValorEntrada());
-            stmt.setDouble  (5, caixa.getValorSaida());
-            stmt.setDouble  (6, caixa.getValorTotal());
-            stmt.setInt     (7, caixa.getIdFuncionario());
+            stmt.setDouble  (4, caixa.getValorTotal());
+            stmt.setInt     (5, caixa.getIdFuncionario());
             stmt.execute();
             stmt.close();
         } catch (SQLException u) {
@@ -51,18 +47,16 @@ public class CaixaDAO {
     }
     
     public void update(Caixa caixa) {
-        String sql = "UPDATE caixa SET idCliente=?,idProduto=?,quantidade=?, valorEntrada=?,"
-                + "valorSaida=?, valorTotal=?, idFuncionario=? WHERE idCaixa=?";
+        String sql = "UPDATE caixa SET idCliente=?,idProduto=?,quantidade=?,"
+                + "valorTotal=?, idFuncionario=? WHERE idCaixa=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt     (1, caixa.getIdCaixa());
             stmt.setInt     (2, caixa.getIdCliente());
             stmt.setInt     (3, caixa.getIdProduto());
             stmt.setInt     (4, caixa.getQuantidade());
-            stmt.setDouble  (5, caixa.getValorEntrada());
-            stmt.setDouble  (6, caixa.getValorSaida());
-            stmt.setDouble  (7, caixa.getValorTotal());
-            stmt.setInt     (8, caixa.getIdFuncionario());
+            stmt.setDouble  (5, caixa.getValorTotal());
+            stmt.setInt     (6, caixa.getIdFuncionario());
             stmt.execute();
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
             stmt.close();
@@ -103,8 +97,6 @@ public class CaixaDAO {
                 caixa.setIdCliente(rs.getInt("idCliente"));
                 caixa.setIdProduto(rs.getInt("idProduto"));
                 caixa.setQuantidade(rs.getInt("quantidade"));
-                caixa.setValorEntrada(rs.getDouble("valorEntrada"));
-                caixa.setValorSaida(rs.getDouble("valorSaida"));
                 caixa.setValorTotal(rs.getDouble("valorTotal"));
                 caixa.setIdFuncionario(rs.getInt("idFuncionario"));
                 caixas.add(caixa);

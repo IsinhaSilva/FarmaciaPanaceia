@@ -2,6 +2,7 @@ package gui;
 
 import dao.ClienteDAO;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import modelo.Cliente;
@@ -10,13 +11,21 @@ import table.TableClienteGUI;
 
 public class ClienteGUI extends javax.swing.JFrame {
 
-    public ClienteGUI() {
+    public ClienteGUI(){
         initComponents();
         this.setLocationRelativeTo(null);
         setSize(Toolkit.getDefaultToolkit().getScreenSize());
         this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagens/cadastro.png")).getImage());
+        Focus();
 
     }
+    
+    public void Focus(){
+        //Thread.sleep(1000);
+        txtNomeCliente.setText("");
+        txtNomeCliente.requestFocus();
+    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -60,9 +69,9 @@ public class ClienteGUI extends javax.swing.JFrame {
         jMenuCadastroCliente = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(24, 164, 111));
+        jPanel1.setBackground(new java.awt.Color(3, 191, 152));
 
         boder1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -99,6 +108,11 @@ public class ClienteGUI extends javax.swing.JFrame {
                 txtNomeClienteActionPerformed(evt);
             }
         });
+        txtNomeCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomeClienteKeyPressed(evt);
+            }
+        });
         boder1.add(txtNomeCliente);
         txtNomeCliente.setBounds(40, 150, 230, 30);
         boder1.add(jSeparator2);
@@ -123,6 +137,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         btEditar.setForeground(new java.awt.Color(0, 52, 39));
         btEditar.setText("Editar");
         btEditar.setContentAreaFilled(false);
+        btEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEditarActionPerformed(evt);
@@ -186,6 +201,11 @@ public class ClienteGUI extends javax.swing.JFrame {
                 txtRuaActionPerformed(evt);
             }
         });
+        txtRua.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtRuaKeyPressed(evt);
+            }
+        });
         boder1.add(txtRua);
         txtRua.setBounds(40, 620, 230, 30);
 
@@ -207,6 +227,11 @@ public class ClienteGUI extends javax.swing.JFrame {
         txtNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumActionPerformed(evt);
+            }
+        });
+        txtNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNumKeyPressed(evt);
             }
         });
         boder1.add(txtNum);
@@ -266,6 +291,11 @@ public class ClienteGUI extends javax.swing.JFrame {
                 formattedDataNascActionPerformed(evt);
             }
         });
+        formattedDataNasc.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formattedDataNascKeyPressed(evt);
+            }
+        });
         boder1.add(formattedDataNasc);
         formattedDataNasc.setBounds(40, 390, 230, 30);
 
@@ -275,6 +305,11 @@ public class ClienteGUI extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        formattedCep.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formattedCepKeyPressed(evt);
+            }
+        });
         boder1.add(formattedCep);
         formattedCep.setBounds(40, 230, 230, 30);
 
@@ -287,6 +322,11 @@ public class ClienteGUI extends javax.swing.JFrame {
         formattedCpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 formattedCpfActionPerformed(evt);
+            }
+        });
+        formattedCpf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formattedCpfKeyPressed(evt);
             }
         });
         boder1.add(formattedCpf);
@@ -303,6 +343,11 @@ public class ClienteGUI extends javax.swing.JFrame {
                 formattedTelefoneActionPerformed(evt);
             }
         });
+        formattedTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formattedTelefoneKeyPressed(evt);
+            }
+        });
         boder1.add(formattedTelefone);
         formattedTelefone.setBounds(40, 470, 230, 30);
 
@@ -313,7 +358,7 @@ public class ClienteGUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(712, Short.MAX_VALUE)
                 .addComponent(boder1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(712, Short.MAX_VALUE))
+                .addContainerGap(733, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -470,6 +515,49 @@ public class ClienteGUI extends javax.swing.JFrame {
     private void formattedCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_formattedCpfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_formattedCpfActionPerformed
+
+    private void txtNomeClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeClienteKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            formattedCep.requestFocus();
+        }
+    }//GEN-LAST:event_txtNomeClienteKeyPressed
+
+    private void formattedCepKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formattedCepKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            formattedCpf.requestFocus();
+        }
+    }//GEN-LAST:event_formattedCepKeyPressed
+
+    private void formattedCpfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formattedCpfKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            formattedDataNasc.requestFocus();
+        }
+    }//GEN-LAST:event_formattedCpfKeyPressed
+
+    private void formattedDataNascKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formattedDataNascKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            formattedTelefone.requestFocus();
+        }
+    }//GEN-LAST:event_formattedDataNascKeyPressed
+
+    private void formattedTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formattedTelefoneKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            txtRua.requestFocus();
+            txtRua.setText("");
+        }
+    }//GEN-LAST:event_formattedTelefoneKeyPressed
+
+    private void txtRuaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRuaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            txtNum.requestFocus();
+            txtNum.setText("");
+        }
+    }//GEN-LAST:event_txtRuaKeyPressed
+
+    private void txtNumKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        }
+    }//GEN-LAST:event_txtNumKeyPressed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

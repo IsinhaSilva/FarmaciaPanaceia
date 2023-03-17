@@ -2,8 +2,6 @@ package table;
 
 import dao.ClienteDAO;
 import gui.ClienteGUI;
-import modelo.Cliente;
-import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
@@ -83,9 +81,9 @@ public class TableClienteGUI extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(24, 164, 111));
+        jPanel1.setBackground(new java.awt.Color(3, 191, 152));
 
         boder1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -145,9 +143,9 @@ public class TableClienteGUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(1, 72, 45));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cliente");
+        jLabel1.setText("CLIENTE");
         boder1.add(jLabel1);
-        jLabel1.setBounds(10, 20, 1040, 60);
+        jLabel1.setBounds(10, 30, 1040, 40);
 
         btAtualizar.setBackground(new java.awt.Color(0, 255, 255));
         btAtualizar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -330,20 +328,20 @@ public class TableClienteGUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(200, Short.MAX_VALUE)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(boder1, javax.swing.GroupLayout.PREFERRED_SIZE, 1057, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(boder2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(101, Short.MAX_VALUE)
+                .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(boder2, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
                     .addComponent(boder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -384,6 +382,7 @@ public class TableClienteGUI extends javax.swing.JFrame {
         if (jtCliente.getSelectedRow() != -1) {
             Cliente cliente = new Cliente();
             cliente.setIdCliente((int) jtCliente.getValueAt(jtCliente.getSelectedRow(), 0));
+            
             cliente.setNomeCliente(txtNomeCliente.getText());
             cliente.setCep(formattedCep.getText());
             cliente.setCpf(formattedCpf.getText());
@@ -394,20 +393,18 @@ public class TableClienteGUI extends javax.swing.JFrame {
             } else {
                 cliente.setGenero("Masculino");
             }
-            
             if (jRadioConv.isSelected()) {
                 cliente.setConvenio(true);
             } else {
                 cliente.setConvenio(false);
             }
-
             cliente.setEndRua(txtRua.getText());
             cliente.setEndNum(Integer.parseInt(txtNum.getText()));
 
             if ((txtNomeCliente.getText().isEmpty()) || (formattedCep.getText().isEmpty())
-                    || (formattedCpf.getText().isEmpty())
-                    || (formattedDataNasc.getText().isEmpty()) || (formattedTelefone.getText().isEmpty())
-                    || (txtRua.getText().isEmpty()) || (txtNum.getText().isEmpty())) {
+                    || (formattedCpf.getText().isEmpty()) || (formattedDataNasc.getText().isEmpty()) 
+                    || (formattedTelefone.getText().isEmpty()) || (txtRua.getText().isEmpty()) 
+                    || (txtNum.getText().isEmpty())) {
                 JOptionPane.showMessageDialog(null, "O campo não pode retornar vazio");
             } else {
                 ClienteDAO dao = new ClienteDAO();

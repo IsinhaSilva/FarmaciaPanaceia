@@ -17,27 +17,25 @@ public class ProdutoDAO {
     
         int idProduto;
         String nome;
-        String fornecedores;
         int quantidade;
         double valorUnidade;
-        double valorEstoque;
+        String bula;
         
     public ProdutoDAO() {
     this.connection = new ConnectionFactory().getConnection();
     }
     
     public void adiciona(Produto produto){
-        String sql = "INSERT INTO produto(nome, fornecedores, valorUnidade, quantidade, valorEstoque) "
-            + "VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO produto(nome,valorUnidade, quantidade, bula) "
+            + "VALUES (?,?,?,?)";
         
         try {
             
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString     (1, produto.getNome());
-            stmt.setString     (2, produto.getFornecedores());
-            stmt.setDouble     (3, produto.getValorUnidade());
-            stmt.setInt        (4, produto.getQuantidade());
-            stmt.setDouble     (5, produto.getValorEstoque()); 
+            stmt.setDouble     (2, produto.getValorUnidade());
+            stmt.setInt        (3, produto.getQuantidade());
+            stmt.setString     (4, produto.getBula()); 
             stmt.execute();
             stmt.close();
         }
@@ -47,15 +45,14 @@ public class ProdutoDAO {
     }
     
     public void update(Produto produto) {
-        String sql = "UPDATE produto SET nome=?, fornecedores=?, valorUnidade=?, "
-            + "quantidade=?, valorEstoque=?, WHERE idProduto=?";
+        String sql = "UPDATE produto SET nome=?, valorUnidade=?, "
+            + "quantidade=?, bula=?, WHERE idProduto=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString     (1, produto.getNome());
-            stmt.setString     (2, produto.getFornecedores());
-            stmt.setDouble     (3, produto.getValorUnidade());
-            stmt.setInt        (4, produto.getQuantidade());
-            stmt.setDouble     (5, produto.getValorEstoque());
+            stmt.setDouble     (2, produto.getValorUnidade());
+            stmt.setInt        (3, produto.getQuantidade());
+            stmt.setString     (4, produto.getBula());
             stmt.execute();
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
             stmt.close();
@@ -93,10 +90,9 @@ public class ProdutoDAO {
                 Produto produto = new Produto();
                 produto.setIdProduto   (rs.getInt   ("idProduto"));
                 produto.setNome        (rs.getString("nome"));
-                produto.setFornecedores(rs.getString("fornecedores"));
                 produto.setValorUnidade(rs.getDouble("valorUnidade"));
                 produto.setQuantidade  (rs.getInt   ("quantidade"));
-                produto.setValorEstoque(rs.getDouble("valorEstoque"));
+                produto.setBula        (rs.getString("bula"));
                 produtos.add(produto);
                 
             }
