@@ -16,7 +16,7 @@ public class ProdutoDAO {
     private Connection connection;
     
         int idProduto;
-        String nome;
+        String nomeProduto;
         int quantidade;
         double valorUnidade;
         String bula;
@@ -26,13 +26,13 @@ public class ProdutoDAO {
     }
     
     public void adiciona(Produto produto){
-        String sql = "INSERT INTO produto(nome,valorUnidade, quantidade, bula) "
+        String sql = "INSERT INTO produto(nomeProduto,valorUnidade, quantidade, bula) "
             + "VALUES (?,?,?,?)";
         
         try {
             
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString     (1, produto.getNome());
+            stmt.setString     (1, produto.getNomeProduto());
             stmt.setDouble     (2, produto.getValorUnidade());
             stmt.setInt        (3, produto.getQuantidade());
             stmt.setString     (4, produto.getBula()); 
@@ -45,11 +45,11 @@ public class ProdutoDAO {
     }
     
     public void update(Produto produto) {
-        String sql = "UPDATE produto SET nome=?, valorUnidade=?, "
+        String sql = "UPDATE produto SET nomeProduto=?, valorUnidade=?, "
             + "quantidade=?, bula=?, WHERE idProduto=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString     (1, produto.getNome());
+            stmt.setString     (1, produto.getNomeProduto());
             stmt.setDouble     (2, produto.getValorUnidade());
             stmt.setInt        (3, produto.getQuantidade());
             stmt.setString     (4, produto.getBula());
@@ -89,7 +89,7 @@ public class ProdutoDAO {
             while (rs.next()) {
                 Produto produto = new Produto();
                 produto.setIdProduto   (rs.getInt   ("idProduto"));
-                produto.setNome        (rs.getString("nome"));
+                produto.setNomeProduto(rs.getString("nomeProduto"));
                 produto.setValorUnidade(rs.getDouble("valorUnidade"));
                 produto.setQuantidade  (rs.getInt   ("quantidade"));
                 produto.setBula        (rs.getString("bula"));

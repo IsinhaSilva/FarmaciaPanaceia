@@ -25,10 +25,10 @@ public class TableProdutoGUI extends javax.swing.JFrame {
         for (Produto produto : dao.leitura()) {
             modelo.addRow(new Object[]{
                 produto.getIdProduto(),
-                produto.getNome(),
+                produto.getNomeProduto(),
                 produto.getValorUnidade(),
                 produto.getQuantidade(),
-                produto.getBula(),});
+                produto.getBula()});
         }
         
     }
@@ -71,7 +71,7 @@ public class TableProdutoGUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo Produto", "Nome", "Valor ", "Quantidade", "Bula"
+                "Codigo Produto", "Nome", "Valor ", "Quantidade"
             }
         ));
         jtProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -244,17 +244,18 @@ public class TableProdutoGUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addComponent(boder1, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addGap(36, 36, 36)
                 .addComponent(boder2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(boder2, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
-                    .addComponent(boder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(50, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(boder1, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boder2, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -292,7 +293,7 @@ public class TableProdutoGUI extends javax.swing.JFrame {
             Produto produto = new Produto();
             produto.setIdProduto((int) jtProdutos.getValueAt(jtProdutos.getSelectedRow(), 0));
             
-            produto.setNome(txtNome.getText());
+            produto.setNomeProduto(txtNome.getText());
             produto.setValorUnidade(Double.parseDouble(txtValorUnidade.getText()));
             produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()) );
             produto.setBula(txtBula.getText());
@@ -359,7 +360,6 @@ public class TableProdutoGUI extends javax.swing.JFrame {
             txtNome.setText(jtProdutos.getValueAt       (jtProdutos.getSelectedRow(), 1).toString());
             txtValorUnidade.setText(jtProdutos.getValueAt       (jtProdutos.getSelectedRow(), 2).toString());
             txtQuantidade.setText(jtProdutos.getValueAt     (jtProdutos.getSelectedRow(), 3).toString());
-            txtBula.setText(jtProdutos.getValueAt  (jtProdutos.getSelectedRow(), 4).toString());
             }
     }//GEN-LAST:event_jtProdutosMouseClicked
 

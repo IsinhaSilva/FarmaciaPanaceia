@@ -2,7 +2,7 @@ package modelo;
 
 public class Produto {
     int idProduto;
-    String nome;
+    String nomeProduto;
     double valorUnidade;
     int quantidade;
     String bula;
@@ -15,12 +15,12 @@ public class Produto {
         this.idProduto = idProduto;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeProduto() {
+        return nomeProduto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeProduto(String nome) {
+        this.nomeProduto = nome;
     }
 
     public double getValorUnidade() {
