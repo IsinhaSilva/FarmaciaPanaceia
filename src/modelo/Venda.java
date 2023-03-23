@@ -1,23 +1,23 @@
 package modelo;
 
-public class Vendas {
-    int idVendas;
+public class Venda {
+    int idVenda;
     int idCliente;
     int idProduto;
     String nomeCliente;
     String nomeProduto;
     int quantidade;
-    double valorUnitario;
-    String dataVendas;
-    boolean formaPagamento;
+    double valorUnidade;
+    String dataVenda;
+    String formaPagamento;
     double valorTotal;
 
-    public int getIdVendas() {
-        return idVendas;
+    public int getIdVenda() {
+        return idVenda;
     }
 
-    public void setIdVendas(int idVendas) {
-        this.idVendas = idVendas;
+    public void setIdVenda(int idVenda) {
+        this.idVenda = idVenda;
     }
 
     public int getIdCliente() {
@@ -60,27 +60,27 @@ public class Vendas {
         this.quantidade = quantidade;
     }
 
-    public double getValorUnitario() {
-        return valorUnitario;
+    public double getValorUnidade() {
+        return valorUnidade;
     }
 
-    public void setValorUnitario(double valorUnitario) {
-        this.valorUnitario = valorUnitario;
+    public void setValorUnidade(double valorUnitario) {
+        this.valorUnidade = valorUnitario;
     }
 
-    public String getDataVendas() {
-        return dataVendas;
+    public String getDataVenda() {
+        return dataVenda;
     }
 
-    public void setDataVendas(String dataVendas) {
-        this.dataVendas = dataVendas;
+    public void setDataVenda(String dataVendas) {
+        this.dataVenda = dataVenda;
     }
 
-    public boolean isFormaPagamento() {
+    public String getFormaPagamento() {
         return formaPagamento;
     }
 
-    public void setFormaPagamento(boolean formaPagamento) {
+    public void setFormaPagamento(String formaPagamento) {
         this.formaPagamento = formaPagamento;
     }
 

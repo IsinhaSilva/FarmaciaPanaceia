@@ -20,6 +20,9 @@ public class ClienteGUI extends javax.swing.JFrame {
 
     }
     
+    
+    
+    
     public void Focus(){
         //Thread.sleep(1000);
         txtNomeCliente.setText("");

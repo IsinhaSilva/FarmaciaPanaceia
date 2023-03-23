@@ -201,7 +201,7 @@ public class TelaInicialGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarFuncActionPerformed
 
     private void btnCadastroFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroFuncActionPerformed
-        new CaixaGUI().setVisible(true);
+        new VendaGui().setVisible(true);
     }//GEN-LAST:event_btnCadastroFuncActionPerformed
 
     private void btnEditarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClientesActionPerformed

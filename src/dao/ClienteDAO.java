@@ -1,5 +1,6 @@
 package dao;
 
+import modelo.Cliente;
 import factory.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import modelo.Cliente;
+
 
 public class ClienteDAO {
 
@@ -74,6 +75,18 @@ public class ClienteDAO {
         } catch (SQLException u) {
             JOptionPane.showMessageDialog(null, "Erro ao atualizar!");
             throw new RuntimeException(u);
+        }
+    }
+    public ResultSet listarCliente(){
+        connection = new ConnectionFactory().getConnection();
+        String sql = "SELECT * FROM cliente ORDER BY nomeCliente;"; //ordem alfabética 
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            return stmt.executeQuery();
+            
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro no listar do cliente DAO.");
+            return null;
         }
     }
 

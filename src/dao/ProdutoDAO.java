@@ -25,6 +25,19 @@ public class ProdutoDAO {
     this.connection = new ConnectionFactory().getConnection();
     }
     
+    public ResultSet listarProduto(){
+        connection = new ConnectionFactory().getConnection();
+        String sql = "SELECT * FROM produto ORDER BY nomeProduto;"; //ordem alfabética 
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            return stmt.executeQuery();
+            
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Ocorreu um erro produto no DAO.");
+            return null;
+        }
+    }
+    
     public void adiciona(Produto produto){
         String sql = "INSERT INTO produto(nomeProduto,valorUnidade, quantidade, bula) "
             + "VALUES (?,?,?,?)";
