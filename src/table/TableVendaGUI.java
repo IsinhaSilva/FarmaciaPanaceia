@@ -1,15 +1,36 @@
 package table;
 
+import dao.VendaDAO;
 import java.awt.Toolkit;
+import javax.swing.table.DefaultTableModel;
+import modelo.Venda;
 
 public class TableVendaGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TableVendaGUI
-     */
     public TableVendaGUI() {
         initComponents();
         setSize(Toolkit.getDefaultToolkit().getScreenSize());
+    }
+    
+    public void leiaJTable() {
+        DefaultTableModel modelo = (DefaultTableModel) jtVendas.getModel();
+        modelo.setNumRows(0);//evida duplicar os resultadas ao cadastrar um item
+        VendaDAO dao = new VendaDAO();
+        for (Venda venda : dao.leitura()) {
+            modelo.addRow(new Object[]{
+                venda.getIdVenda(),
+                venda.getIdCliente(),
+                venda.getIdProduto(),
+                venda.getNomeCliente(),
+                venda.getNomeProduto(),
+                venda.getQuantidade(),
+                venda.getValorUnidade(),
+                venda.getDataVenda(),
+                venda.getHoraVenda(),
+                venda.getFormaPagamento(),
+                venda.getValorTotal(),});
+        }
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -38,35 +59,32 @@ public class TableVendaGUI extends javax.swing.JFrame {
 
         jtVendas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "codigo ", "codigo cliete", "codigo produto", "nome cliente", "nome produto", "quantidade", "valor unidade", "data venda", "forma pagamento", "valor total"
+                "Codigo ", "Codigo Cliete", "Codigo Produto", "Nome Cliente", "Nome Produto", "Quantidade", "Valor Unidade", "Data Venda", "Forma Pagamento", "Valor Total"
             }
         ));
         jScrollPane1.setViewportView(jtVendas);
 
         boder1.add(jScrollPane1);
-        jScrollPane1.setBounds(40, 90, 950, 610);
+        jScrollPane1.setBounds(20, 90, 1180, 610);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addComponent(boder1, javax.swing.GroupLayout.PREFERRED_SIZE, 1034, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(401, Short.MAX_VALUE)
+                .addComponent(boder1, javax.swing.GroupLayout.PREFERRED_SIZE, 1239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(394, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addContainerGap(150, Short.MAX_VALUE)
                 .addComponent(boder1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -113,6 +113,11 @@ public class ProdutoGUI extends javax.swing.JFrame {
         btCadastrar.setText("Cadastrar");
         btCadastrar.setBorder(null);
         btCadastrar.setContentAreaFilled(false);
+        btCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadastrarActionPerformed(evt);
+            }
+        });
         boder1.add(btCadastrar);
         btCadastrar.setBounds(180, 630, 110, 40);
 
@@ -171,6 +176,30 @@ public class ProdutoGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
+        Produto produto = new Produto();
+        produto.setNomeProduto(txtNome.getText());
+        produto.setValorUnidade(Integer.parseInt(txtValorUnidade.getText()));
+        produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
+        produto.setBula(txtBula.getText());
+
+        if ((txtNome.getText().isEmpty()) || (txtValorUnidade.getText().isEmpty()) 
+           || (txtQuantidade.getText().isEmpty()) || (txtBula.getText().isEmpty())) {
+            JOptionPane.showMessageDialog(null, " Os campos não podem retornar vazios ");
+        } else {
+
+            ProdutoDAO dao = new ProdutoDAO();
+            dao.adiciona(produto);
+            JOptionPane.showMessageDialog(null, " Produto " + txtNome.getText() + " inserido com sucesso! ");
+        }
+
+        txtNome.setText("");
+        txtValorUnidade.setText("");
+        txtQuantidade.setText("");
+        txtBula.setText("");
+     
+    }//GEN-LAST:event_btCadastrarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

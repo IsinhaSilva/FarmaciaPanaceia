@@ -7,6 +7,7 @@ import table.TableProdutoGUI;
 import table.TableFuncionario;
 import gui.ClienteGUI;
 import gui.ProdutoGUI;
+import table.TableVendaGUI;
 
 public class TelaInicialGUI extends javax.swing.JFrame {
 
@@ -28,8 +29,8 @@ public class TelaInicialGUI extends javax.swing.JFrame {
         btnCadastroProdutos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnEditarFunc = new javax.swing.JButton();
-        btnCadastroFunc = new javax.swing.JButton();
+        btnHistorico = new javax.swing.JButton();
+        btnCaixa = new javax.swing.JButton();
         btnEditarClientes = new javax.swing.JButton();
         btnCadastroClientes = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -78,31 +79,31 @@ public class TelaInicialGUI extends javax.swing.JFrame {
         boder1.add(jLabel2);
         jLabel2.setBounds(290, 320, 120, 160);
 
-        btnEditarFunc.setBackground(new java.awt.Color(255, 255, 255));
-        btnEditarFunc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnEditarFunc.setText("Historico");
-        btnEditarFunc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
-        btnEditarFunc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnEditarFunc.addActionListener(new java.awt.event.ActionListener() {
+        btnHistorico.setBackground(new java.awt.Color(255, 255, 255));
+        btnHistorico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnHistorico.setText("Historico");
+        btnHistorico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
+        btnHistorico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHistorico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditarFuncActionPerformed(evt);
+                btnHistoricoActionPerformed(evt);
             }
         });
-        boder1.add(btnEditarFunc);
-        btnEditarFunc.setBounds(160, 410, 120, 40);
+        boder1.add(btnHistorico);
+        btnHistorico.setBounds(160, 410, 120, 40);
 
-        btnCadastroFunc.setBackground(new java.awt.Color(255, 255, 255));
-        btnCadastroFunc.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnCadastroFunc.setText("Abrir");
-        btnCadastroFunc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
-        btnCadastroFunc.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnCadastroFunc.addActionListener(new java.awt.event.ActionListener() {
+        btnCaixa.setBackground(new java.awt.Color(255, 255, 255));
+        btnCaixa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCaixa.setText("Abrir");
+        btnCaixa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
+        btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCaixa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroFuncActionPerformed(evt);
+                btnCaixaActionPerformed(evt);
             }
         });
-        boder1.add(btnCadastroFunc);
-        btnCadastroFunc.setBounds(160, 360, 120, 40);
+        boder1.add(btnCaixa);
+        btnCaixa.setBounds(160, 360, 120, 40);
 
         btnEditarClientes.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarClientes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -196,13 +197,13 @@ public class TelaInicialGUI extends javax.swing.JFrame {
         new ProdutoGUI().setVisible(true);
     }//GEN-LAST:event_btnCadastroProdutosActionPerformed
 
-    private void btnEditarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarFuncActionPerformed
-        new TableFuncionario().setVisible(true);
-    }//GEN-LAST:event_btnEditarFuncActionPerformed
+    private void btnHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricoActionPerformed
+        new TableVendaGUI().setVisible(true);
+    }//GEN-LAST:event_btnHistoricoActionPerformed
 
-    private void btnCadastroFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroFuncActionPerformed
+    private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
         new VendaGui().setVisible(true);
-    }//GEN-LAST:event_btnCadastroFuncActionPerformed
+    }//GEN-LAST:event_btnCaixaActionPerformed
 
     private void btnEditarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClientesActionPerformed
         new TableClienteGUI().setVisible(true);
@@ -250,11 +251,11 @@ public class TelaInicialGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private gui.Boder boder1;
     private javax.swing.JButton btnCadastroClientes;
-    private javax.swing.JButton btnCadastroFunc;
     private javax.swing.JButton btnCadastroProdutos;
+    private javax.swing.JButton btnCaixa;
     private javax.swing.JButton btnEditarClientes;
-    private javax.swing.JButton btnEditarFunc;
     private javax.swing.JButton btnEditarProdutos;
+    private javax.swing.JButton btnHistorico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

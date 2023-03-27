@@ -24,6 +24,7 @@ public class VendaDAO {
         int quantidade;
         double valorUnidade;
         String dataVenda;
+        String horaVenda;
         String formaPagamento;
         double valorTotal;
         
@@ -33,8 +34,8 @@ public class VendaDAO {
     
     public void adiciona(Venda venda){
         String sql = "INSERT INTO venda(idCliente, idProduto, nomeCliente, nomeProduto, quantidade," +
-        "valorUnidade, dataVenda, formaPagamento, valorTotal;) "
-            + "VALUES (?,?,?,?,?,?,?,?,?)";
+        "valorUnidade, dataVenda, horaVenda, formaPagamento, valorTotal;) "
+            + "VALUES (?,?,?,?,?,?,?,?,?,?)";
         
         try {
             
@@ -46,8 +47,9 @@ public class VendaDAO {
             stmt.setInt     (5, venda.getQuantidade());
             stmt.setDouble  (6, venda.getValorUnidade());
             stmt.setString  (7, venda.getDataVenda());
-            stmt.setString  (8, venda.getFormaPagamento());
-            stmt.setDouble  (9, venda.getValorTotal());
+            stmt.setString  (8, venda.getHoraVenda());
+            stmt.setString  (9, venda.getFormaPagamento());
+            stmt.setDouble  (10, venda.getValorTotal());
             stmt.execute();
             stmt.close();
         }
@@ -59,7 +61,7 @@ public class VendaDAO {
     public void update(Venda venda) {
         String sql = "UPDATE venda SET idCliente=?, idProduto=?, "
             + "nomeCliente=?, nomeProduto=?, quantidade=?, valorUnidade=?, "
-            + "dataVenda=?, formaPagammento=?, valorTotal=?, WHERE idVenda=?";
+            + "dataVenda=?, horaVenda=?, formaPagammento=?, valorTotal=?, WHERE idVenda=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt     (1, venda.getIdCliente());
@@ -69,8 +71,9 @@ public class VendaDAO {
             stmt.setInt     (5, venda.getQuantidade());
             stmt.setDouble  (6, venda.getValorUnidade());
             stmt.setString  (7, venda.getDataVenda());
-            stmt.setString  (8, venda.getFormaPagamento());
-            stmt.setDouble  (9, venda.getValorTotal());
+            stmt.setString  (8, venda.getHoraVenda());
+            stmt.setString  (9, venda.getFormaPagamento());
+            stmt.setDouble  (10, venda.getValorTotal());
             stmt.execute();
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
             stmt.close();
@@ -114,7 +117,9 @@ public class VendaDAO {
                 venda.setQuantidade     (rs.getInt   ("quantidade"));
                 venda.setValorUnidade   (rs.getDouble("valorUnidade"));
                 venda.setDataVenda      (rs.getString("dataVenda"));
+                venda.setHoraVenda      (rs.getString("horaVenda"));
                 venda.setFormaPagamento (rs.getString ("formaPagamento"));
+                venda.setValorTotal   (rs.getDouble("valorTotal"));
                 vendas.add(venda);
                 
             }

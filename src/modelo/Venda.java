@@ -1,6 +1,8 @@
 package modelo;
 
 public class Venda {
+    
+    
     int idVenda;
     int idCliente;
     int idProduto;
@@ -9,6 +11,7 @@ public class Venda {
     int quantidade;
     double valorUnidade;
     String dataVenda;
+    String horaVenda;
     String formaPagamento;
     double valorTotal;
 
@@ -74,6 +77,14 @@ public class Venda {
 
     public void setDataVenda(String dataVendas) {
         this.dataVenda = dataVenda;
+    }
+
+    public String getHoraVenda() {
+        return horaVenda;
+    }
+
+    public void setHoraVenda(String horaVenda) {
+        this.horaVenda = horaVenda;
     }
 
     public String getFormaPagamento() {

@@ -4,7 +4,10 @@ import dao.ClienteDAO;
 import dao.ProdutoDAO;
 import dao.VendaDAO;
 import factory.ConnectionFactory;
+import java.awt.Toolkit;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import modelo.Venda;
@@ -15,10 +18,12 @@ public class VendaGui extends javax.swing.JFrame {
     
     public VendaGui() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        setSize(Toolkit.getDefaultToolkit().getScreenSize());
         valoresComboxCliente();
         valoresComboxProduto();
     }
-
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -34,7 +39,7 @@ public class VendaGui extends javax.swing.JFrame {
         cbProdutos = new javax.swing.JComboBox<>();
         txfIdProduto = new javax.swing.JTextField();
         txfQuantidade = new javax.swing.JTextField();
-        txfValorU = new javax.swing.JTextField();
+        txfValorUnidade = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         somar1 = new javax.swing.JButton();
@@ -65,7 +70,7 @@ public class VendaGui extends javax.swing.JFrame {
         boder1.add(jLabel2);
         jLabel2.setBounds(70, 530, 150, 17);
 
-        cbNomeCliente.setBackground(new java.awt.Color(3, 191, 152));
+        cbNomeCliente.setBackground(new java.awt.Color(149, 237, 218));
         cbNomeCliente.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         cbNomeCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o cliente" }));
         cbNomeCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +98,7 @@ public class VendaGui extends javax.swing.JFrame {
         boder1.add(txfIdCliente);
         txfIdCliente.setBounds(80, 180, 64, 50);
 
-        cbProdutos.setBackground(new java.awt.Color(3, 191, 152));
+        cbProdutos.setBackground(new java.awt.Color(149, 237, 218));
         cbProdutos.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         cbProdutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o produto" }));
         cbProdutos.addActionListener(new java.awt.event.ActionListener() {
@@ -127,16 +132,16 @@ public class VendaGui extends javax.swing.JFrame {
         boder1.add(txfQuantidade);
         txfQuantidade.setBounds(70, 460, 370, 40);
 
-        txfValorU.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        txfValorU.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txfValorU.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txfValorU.addActionListener(new java.awt.event.ActionListener() {
+        txfValorUnidade.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        txfValorUnidade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txfValorUnidade.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txfValorUnidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txfValorUActionPerformed(evt);
+                txfValorUnidadeActionPerformed(evt);
             }
         });
-        boder1.add(txfValorU);
-        txfValorU.setBounds(70, 550, 370, 40);
+        boder1.add(txfValorUnidade);
+        txfValorUnidade.setBounds(70, 550, 370, 40);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setText("                 PRODUTOS");
@@ -157,7 +162,7 @@ public class VendaGui extends javax.swing.JFrame {
             }
         });
         boder1.add(somar1);
-        somar1.setBounds(570, 430, 103, 37);
+        somar1.setBounds(570, 430, 130, 37);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/carrinho caixa gui.png"))); // NOI18N
         boder1.add(jLabel6);
@@ -182,9 +187,9 @@ public class VendaGui extends javax.swing.JFrame {
         formatDataVenda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         formatDataVenda.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         boder1.add(formatDataVenda);
-        formatDataVenda.setBounds(930, 80, 100, 34);
+        formatDataVenda.setBounds(900, 80, 130, 34);
 
-        cbFormaPagamento.setBackground(new java.awt.Color(3, 191, 152));
+        cbFormaPagamento.setBackground(new java.awt.Color(149, 237, 218));
         cbFormaPagamento.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         cbFormaPagamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cartão de crédito", "Cartão de débito", "Dinheiro vivo", "Cheque a vista", "Cheque a prazo", "A prazo no carnê" }));
         cbFormaPagamento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -271,13 +276,13 @@ public class VendaGui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txfQuantidadeActionPerformed
 
-    private void txfValorUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfValorUActionPerformed
+    private void txfValorUnidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfValorUnidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txfValorUActionPerformed
+    }//GEN-LAST:event_txfValorUnidadeActionPerformed
 
     private void somar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_somar1ActionPerformed
         //Puxando o valor das caixa
-        double valorU = Double.parseDouble(txfValorU.getText());
+        double valorU = Double.parseDouble(txfValorUnidade.getText());
 
         double quantidade = Double.parseDouble(txfQuantidade.getText());
 
@@ -289,21 +294,15 @@ public class VendaGui extends javax.swing.JFrame {
         double valorTDouble = valorT;
         String ValorTString = String.valueOf(valorTDouble);
         txfValorTotal.setText(ValorTString);
-
-        //Apagando texto ruim
-        cbProdutos.setSelectedItem(0);
-        txfValorU.setText("");
-        txfQuantidade.setText("");
-        txfIdProduto.setText("");
     }//GEN-LAST:event_somar1ActionPerformed
 
     private void txfValorTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfValorTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfValorTotalActionPerformed
 
-    
+    //chamando nome do cliente
     public void valoresComboxCliente() {
-        Vector<Integer> idProduto = new Vector<Integer>();
+        Vector<Integer> idCliente = new Vector<Integer>();
         try {
             java.sql.Connection connection = new ConnectionFactory().getConnection();
             ClienteDAO clienteDAO = new ClienteDAO();
@@ -311,8 +310,8 @@ public class VendaGui extends javax.swing.JFrame {
             ResultSet rs = clienteDAO.listarCliente();
 
             while (rs.next()) {
-                idProduto.addElement(rs.getInt(1));
-                cbNomeCliente.addItem(rs.getString(2));
+                idCliente.addElement(rs.getInt(1));
+                cbNomeCliente.addItem(rs.getString(4));
             }
 
         } catch (Exception erro) {
@@ -320,6 +319,7 @@ public class VendaGui extends javax.swing.JFrame {
         }
     }
     
+    //chamando nome do produto
     public void valoresComboxProduto() {
         Vector<Integer> idProduto = new Vector<Integer>();
         try {
@@ -332,18 +332,15 @@ public class VendaGui extends javax.swing.JFrame {
                 idProduto.addElement(rs.getInt(1));
                 cbProdutos.addItem(rs.getString(2));
             }
+                
 
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Ocorreu um erro no produto GUI");
         }
     }
-    
-    
-    
-    
-    
+ 
     private void jbCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelActionPerformed
-        txfValorU.setText("");
+        txfValorUnidade.setText("");
         txfQuantidade.setText("");
         formatDataVenda.setText("");
         txfIdProduto.setText("");
@@ -353,7 +350,7 @@ public class VendaGui extends javax.swing.JFrame {
 
     private void apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apagarActionPerformed
 
-        txfValorU.setText("");
+        txfValorUnidade.setText("");
         txfQuantidade.setText("");
         formatDataVenda.setText("");
         txfIdProduto.setText("");
@@ -364,15 +361,37 @@ public class VendaGui extends javax.swing.JFrame {
 
     private void confirmarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarCompraActionPerformed
 
+        //Tratamento data e hora cadastro
+        Date dataHoraAtual = new Date();
+        String data = new SimpleDateFormat("yyyy/MM/dd").format(dataHoraAtual);
+        String hora = new SimpleDateFormat("HH:mm:ss").format(dataHoraAtual);
+        JOptionPane.showConfirmDialog(null, data);
+        
         Venda venda = new Venda();
+        
         venda.setIdCliente(Integer.parseInt(txfIdCliente.getText()));
-        venda.setDataVenda (formatDataVenda.getText());
-        venda.setValorTotal(Double.parseDouble(txfValorTotal.getText()));
+        venda.setIdProduto(Integer.parseInt(txfIdProduto.getText()));
         venda.setNomeCliente(cbNomeCliente.getSelectedItem().toString());
+        venda.setNomeProduto(cbProdutos.getSelectedItem().toString());
+        venda.setQuantidade(Integer.parseInt(txfQuantidade.getText()));
+        venda.setValorUnidade(Double.parseDouble(txfValorUnidade.getText()));
+        venda.setDataVenda (data);
+        venda.setHoraVenda (hora);
         venda.setFormaPagamento(cbFormaPagamento.getSelectedItem().toString());
-        VendaDAO dao = new VendaDAO();
-        dao.adiciona(venda);
-        JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso! ");
+        venda.setValorTotal(Double.parseDouble(txfValorTotal.getText()));
+        
+        if ((txfIdCliente.getText().isEmpty()) || (txfIdProduto.getText().isEmpty())
+            || (txfQuantidade.getText().isEmpty()) || (txfValorUnidade.getText().isEmpty())
+            || (txfValorTotal.getText().isEmpty())) {
+            JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+        }  else {
+            // instanciando a classe UsuarioDAO do pacote dao e criando seu objeto dao
+            VendaDAO dao = new VendaDAO();
+            dao.adiciona(venda);
+            JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso! ");
+        }
+        
+        
 
     }//GEN-LAST:event_confirmarCompraActionPerformed
 
@@ -410,6 +429,6 @@ public class VendaGui extends javax.swing.JFrame {
     private javax.swing.JTextField txfIdProduto;
     private javax.swing.JTextField txfQuantidade;
     private javax.swing.JTextField txfValorTotal;
-    private javax.swing.JTextField txfValorU;
+    private javax.swing.JTextField txfValorUnidade;
     // End of variables declaration//GEN-END:variables
 }

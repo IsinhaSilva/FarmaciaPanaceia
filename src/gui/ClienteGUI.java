@@ -410,8 +410,6 @@ public class ClienteGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNomeClienteActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-
-//        TableClienteGUI tc = new TableClienteGUI();
         
         new TableClienteGUI().setVisible(true);
             
