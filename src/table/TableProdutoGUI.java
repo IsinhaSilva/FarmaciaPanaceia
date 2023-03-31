@@ -71,15 +71,21 @@ public class TableProdutoGUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo Produto", "Nome", "Valor ", "Quantidade"
+                "Codigo Produto", "Nome Produto", "Valor Unidade", "Quantidade", "Bula"
             }
         ));
+        jtProdutos.getTableHeader().setReorderingAllowed(false);
         jtProdutos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtProdutosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jtProdutos);
+        if (jtProdutos.getColumnModel().getColumnCount() > 0) {
+            jtProdutos.getColumnModel().getColumn(4).setMinWidth(1);
+            jtProdutos.getColumnModel().getColumn(4).setPreferredWidth(1);
+            jtProdutos.getColumnModel().getColumn(4).setMaxWidth(1);
+        }
 
         boder1.add(jScrollPane1);
         jScrollPane1.setBounds(10, 90, 770, 500);
@@ -357,10 +363,11 @@ public class TableProdutoGUI extends javax.swing.JFrame {
 
     private void jtProdutosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProdutosMouseClicked
         if (jtProdutos.getSelectedRow() != -1) {
-            txtNome.setText(jtProdutos.getValueAt       (jtProdutos.getSelectedRow(), 1).toString());
-            txtValorUnidade.setText(jtProdutos.getValueAt       (jtProdutos.getSelectedRow(), 2).toString());
+            txtNome.setText(jtProdutos.getValueAt           (jtProdutos.getSelectedRow(), 1).toString());
+            txtValorUnidade.setText(jtProdutos.getValueAt   (jtProdutos.getSelectedRow(), 2).toString());
+            txtBula.setText(jtProdutos.getValueAt           (jtProdutos.getSelectedRow(), 4).toString());
             txtQuantidade.setText(jtProdutos.getValueAt     (jtProdutos.getSelectedRow(), 3).toString());
-            }
+        }
     }//GEN-LAST:event_jtProdutosMouseClicked
 
 

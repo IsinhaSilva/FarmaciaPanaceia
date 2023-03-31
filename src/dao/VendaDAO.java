@@ -16,7 +16,7 @@ public class VendaDAO {
     
     private Connection connection;
     
-        int idVendas;
+        int idVenda;
         int idCliente;
         int idProduto;
         String nomeCliente;

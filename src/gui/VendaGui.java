@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import modelo.Venda;
 
 public class VendaGui extends javax.swing.JFrame {
@@ -36,7 +37,6 @@ public class VendaGui extends javax.swing.JFrame {
         cbNomeCliente = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         txfIdCliente = new javax.swing.JTextField();
-        cbProdutos = new javax.swing.JComboBox<>();
         txfIdProduto = new javax.swing.JTextField();
         txfQuantidade = new javax.swing.JTextField();
         txfValorUnidade = new javax.swing.JTextField();
@@ -45,13 +45,13 @@ public class VendaGui extends javax.swing.JFrame {
         somar1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txfValorTotal = new javax.swing.JTextField();
-        formatDataVenda = new javax.swing.JFormattedTextField();
         cbFormaPagamento = new javax.swing.JComboBox<>();
         jbCancel = new javax.swing.JButton();
         apagar = new javax.swing.JButton();
         confirmarCompra = new javax.swing.JButton();
+        txtProduto = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(3, 191, 152));
 
@@ -97,17 +97,6 @@ public class VendaGui extends javax.swing.JFrame {
         });
         boder1.add(txfIdCliente);
         txfIdCliente.setBounds(80, 180, 64, 50);
-
-        cbProdutos.setBackground(new java.awt.Color(149, 237, 218));
-        cbProdutos.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        cbProdutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o produto" }));
-        cbProdutos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbProdutosActionPerformed(evt);
-            }
-        });
-        boder1.add(cbProdutos);
-        cbProdutos.setBounds(160, 300, 280, 50);
 
         txfIdProduto.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         txfIdProduto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -168,7 +157,7 @@ public class VendaGui extends javax.swing.JFrame {
         boder1.add(jLabel6);
         jLabel6.setBounds(620, 110, 280, 250);
 
-        txfValorTotal.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        txfValorTotal.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
         txfValorTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txfValorTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txfValorTotal.addActionListener(new java.awt.event.ActionListener() {
@@ -177,17 +166,7 @@ public class VendaGui extends javax.swing.JFrame {
             }
         });
         boder1.add(txfValorTotal);
-        txfValorTotal.setBounds(570, 510, 430, 40);
-
-        try {
-            formatDataVenda.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        formatDataVenda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        formatDataVenda.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        boder1.add(formatDataVenda);
-        formatDataVenda.setBounds(900, 80, 130, 34);
+        txfValorTotal.setBounds(560, 510, 430, 90);
 
         cbFormaPagamento.setBackground(new java.awt.Color(149, 237, 218));
         cbFormaPagamento.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -205,7 +184,7 @@ public class VendaGui extends javax.swing.JFrame {
             }
         });
         boder1.add(jbCancel);
-        jbCancel.setBounds(300, 720, 129, 37);
+        jbCancel.setBounds(190, 720, 160, 37);
 
         apagar.setBackground(new java.awt.Color(255, 255, 51));
         apagar.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -216,7 +195,7 @@ public class VendaGui extends javax.swing.JFrame {
             }
         });
         boder1.add(apagar);
-        apagar.setBounds(690, 720, 109, 37);
+        apagar.setBounds(750, 720, 160, 37);
 
         confirmarCompra.setBackground(new java.awt.Color(0, 204, 204));
         confirmarCompra.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -227,7 +206,9 @@ public class VendaGui extends javax.swing.JFrame {
             }
         });
         boder1.add(confirmarCompra);
-        confirmarCompra.setBounds(490, 720, 137, 37);
+        confirmarCompra.setBounds(460, 720, 160, 37);
+        boder1.add(txtProduto);
+        txtProduto.setBounds(160, 300, 280, 50);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -281,7 +262,8 @@ public class VendaGui extends javax.swing.JFrame {
     }//GEN-LAST:event_txfValorUnidadeActionPerformed
 
     private void somar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_somar1ActionPerformed
-        //Puxando o valor das caixa
+      
+        
         double valorU = Double.parseDouble(txfValorUnidade.getText());
 
         double quantidade = Double.parseDouble(txfQuantidade.getText());
@@ -311,7 +293,9 @@ public class VendaGui extends javax.swing.JFrame {
 
             while (rs.next()) {
                 idCliente.addElement(rs.getInt(1));
+                idCliente.get(cbNomeCliente.getSelectedIndex());
                 cbNomeCliente.addItem(rs.getString(4));
+            
             }
 
         } catch (Exception erro) {
@@ -329,6 +313,7 @@ public class VendaGui extends javax.swing.JFrame {
             ResultSet rs = produtoDAO.listarProduto();
 
             while (rs.next()) {
+                
                 idProduto.addElement(rs.getInt(1));
                 cbProdutos.addItem(rs.getString(2));
             }
@@ -342,7 +327,6 @@ public class VendaGui extends javax.swing.JFrame {
     private void jbCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelActionPerformed
         txfValorUnidade.setText("");
         txfQuantidade.setText("");
-        formatDataVenda.setText("");
         txfIdProduto.setText("");
         cbNomeCliente.setSelectedItem(0);
         txfValorTotal.setText("");
@@ -352,7 +336,6 @@ public class VendaGui extends javax.swing.JFrame {
 
         txfValorUnidade.setText("");
         txfQuantidade.setText("");
-        formatDataVenda.setText("");
         txfIdProduto.setText("");
         txfIdCliente.setText("");
         cbNomeCliente.setSelectedItem(0);
@@ -360,7 +343,8 @@ public class VendaGui extends javax.swing.JFrame {
     }//GEN-LAST:event_apagarActionPerformed
 
     private void confirmarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarCompraActionPerformed
-
+        
+        
         //Tratamento data e hora cadastro
         Date dataHoraAtual = new Date();
         String data = new SimpleDateFormat("yyyy/MM/dd").format(dataHoraAtual);
@@ -369,10 +353,11 @@ public class VendaGui extends javax.swing.JFrame {
         
         Venda venda = new Venda();
         
+        
         venda.setIdCliente(Integer.parseInt(txfIdCliente.getText()));
         venda.setIdProduto(Integer.parseInt(txfIdProduto.getText()));
         venda.setNomeCliente(cbNomeCliente.getSelectedItem().toString());
-        venda.setNomeProduto(cbProdutos.getSelectedItem().toString());
+        venda.setNomeProduto(txtProduto.getText().toString());
         venda.setQuantidade(Integer.parseInt(txfQuantidade.getText()));
         venda.setValorUnidade(Double.parseDouble(txfValorUnidade.getText()));
         venda.setDataVenda (data);
@@ -395,10 +380,6 @@ public class VendaGui extends javax.swing.JFrame {
 
     }//GEN-LAST:event_confirmarCompraActionPerformed
 
-    private void cbProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbProdutosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbProdutosActionPerformed
-
     public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -413,9 +394,7 @@ public class VendaGui extends javax.swing.JFrame {
     private gui.Boder boder1;
     private javax.swing.JComboBox<String> cbFormaPagamento;
     private javax.swing.JComboBox<String> cbNomeCliente;
-    private javax.swing.JComboBox<String> cbProdutos;
     private javax.swing.JButton confirmarCompra;
-    private javax.swing.JFormattedTextField formatDataVenda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -430,5 +409,6 @@ public class VendaGui extends javax.swing.JFrame {
     private javax.swing.JTextField txfQuantidade;
     private javax.swing.JTextField txfValorTotal;
     private javax.swing.JTextField txfValorUnidade;
+    private javax.swing.JTextField txtProduto;
     // End of variables declaration//GEN-END:variables
 }
