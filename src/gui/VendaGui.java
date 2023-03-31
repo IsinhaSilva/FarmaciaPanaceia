@@ -49,7 +49,8 @@ public class VendaGui extends javax.swing.JFrame {
         jbCancel = new javax.swing.JButton();
         apagar = new javax.swing.JButton();
         confirmarCompra = new javax.swing.JButton();
-        txtProduto = new javax.swing.JTextField();
+        cbNomeCliente1 = new javax.swing.JComboBox<>();
+        cbProdutos = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -207,8 +208,23 @@ public class VendaGui extends javax.swing.JFrame {
         });
         boder1.add(confirmarCompra);
         confirmarCompra.setBounds(460, 720, 160, 37);
-        boder1.add(txtProduto);
-        txtProduto.setBounds(160, 300, 280, 50);
+
+        cbNomeCliente1.setBackground(new java.awt.Color(149, 237, 218));
+        cbNomeCliente1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        cbNomeCliente1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o cliente" }));
+        cbNomeCliente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbNomeCliente1ActionPerformed(evt);
+            }
+        });
+        boder1.add(cbNomeCliente1);
+        cbNomeCliente1.setBounds(160, 180, 280, 50);
+
+        cbProdutos.setBackground(new java.awt.Color(149, 237, 218));
+        cbProdutos.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        cbProdutos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o produto" }));
+        boder1.add(cbProdutos);
+        cbProdutos.setBounds(160, 300, 280, 50);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -315,7 +331,7 @@ public class VendaGui extends javax.swing.JFrame {
             while (rs.next()) {
                 
                 idProduto.addElement(rs.getInt(1));
-                cbProdutos.addItem(rs.getString(2));
+                cbNomeCliente.addItem(rs.getString(2));
             }
                 
 
@@ -380,6 +396,10 @@ public class VendaGui extends javax.swing.JFrame {
 
     }//GEN-LAST:event_confirmarCompraActionPerformed
 
+    private void cbNomeCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNomeCliente1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbNomeCliente1ActionPerformed
+
     public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -394,6 +414,8 @@ public class VendaGui extends javax.swing.JFrame {
     private gui.Boder boder1;
     private javax.swing.JComboBox<String> cbFormaPagamento;
     private javax.swing.JComboBox<String> cbNomeCliente;
+    private javax.swing.JComboBox<String> cbNomeCliente1;
+    private javax.swing.JComboBox<String> cbProdutos;
     private javax.swing.JButton confirmarCompra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -409,6 +431,5 @@ public class VendaGui extends javax.swing.JFrame {
     private javax.swing.JTextField txfQuantidade;
     private javax.swing.JTextField txfValorTotal;
     private javax.swing.JTextField txfValorUnidade;
-    private javax.swing.JTextField txtProduto;
     // End of variables declaration//GEN-END:variables
 }
