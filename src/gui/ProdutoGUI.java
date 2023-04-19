@@ -180,7 +180,7 @@ public class ProdutoGUI extends javax.swing.JFrame {
     private void btCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadastrarActionPerformed
         Produto produto = new Produto();
         produto.setNomeProduto(txtNome.getText());
-        produto.setValorUnidade(Integer.parseInt(txtValorUnidade.getText()));
+        produto.setValorUnidade(Double.parseDouble(txtValorUnidade.getText()));
         produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
         produto.setBula(txtBula.getText());
 

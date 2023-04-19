@@ -49,8 +49,7 @@ public class FuncionarioDAO {
     }
     
     public void update(Funcionario funcionario) {
-        String sql = "UPDATE funcionario SET idCliente=?, nomeFuncionario=?, cpf=?, email=?, "
-            + "enderecoNumero=? enderecoRua=? WHERE idFuncionario=?";
+        String sql = "UPDATE funcionario SET idCliente=?, nomeFuncionario=?, cpf=?, email=?, "+ "enderecoNumero=? enderecoRua=? WHERE idFuncionario=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt        (1, funcionario.getIdFuncionario());
