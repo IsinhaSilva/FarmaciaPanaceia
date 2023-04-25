@@ -301,11 +301,11 @@ public class TableProdutoGUI extends javax.swing.JFrame {
             
             produto.setNomeProduto(txtNome.getText());
             produto.setValorUnidade(Double.parseDouble(txtValorUnidade.getText()));
-            produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()) );
+            produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
             produto.setBula(txtBula.getText());
             
             if ((txtNome.getText().isEmpty()) || (txtValorUnidade.getText().isEmpty())
-                    || (txtQuantidade.getText().isEmpty()) || (txtBula.getText().isEmpty())) {
+                || (txtQuantidade.getText().isEmpty()) || (txtBula.getText().isEmpty())) {
                 JOptionPane.showMessageDialog(null, "O campo não pode retornar vazio");
             } else {
                 ProdutoDAO dao = new ProdutoDAO();
@@ -365,8 +365,8 @@ public class TableProdutoGUI extends javax.swing.JFrame {
         if (jtProdutos.getSelectedRow() != -1) {
             txtNome.setText(jtProdutos.getValueAt           (jtProdutos.getSelectedRow(), 1).toString());
             txtValorUnidade.setText(jtProdutos.getValueAt   (jtProdutos.getSelectedRow(), 2).toString());
-            txtBula.setText(jtProdutos.getValueAt           (jtProdutos.getSelectedRow(), 4).toString());
             txtQuantidade.setText(jtProdutos.getValueAt     (jtProdutos.getSelectedRow(), 3).toString());
+            txtBula.setText(jtProdutos.getValueAt           (jtProdutos.getSelectedRow(), 4).toString());
         }
     }//GEN-LAST:event_jtProdutosMouseClicked
 

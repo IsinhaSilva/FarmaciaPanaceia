@@ -68,7 +68,6 @@ public class ClienteDAO {
             stmt.setString  (8, cliente.getEndRua());
             stmt.setInt     (9, cliente.getEndNum());
             stmt.setInt     (10, cliente.getIdCliente());
-            
             stmt.execute();
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
             stmt.close();

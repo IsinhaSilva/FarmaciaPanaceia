@@ -418,7 +418,6 @@ public class TableClienteGUI extends javax.swing.JFrame {
             txtRua.setText("Digite o nome da rua");
             txtNum.setText("Digite o número da casa");
             buttGpGenero.clearSelection();
-            //jRadioConv.setSelected(false);
             leiaJTable();
         }
 
@@ -437,8 +436,6 @@ public class TableClienteGUI extends javax.swing.JFrame {
             formattedDataNasc.setText(jtCliente.getValueAt  (jtCliente.getSelectedRow(), 6).toString());
             txtRua.setText(jtCliente.getValueAt             (jtCliente.getSelectedRow(), 8).toString());
             txtNum.setText(jtCliente.getValueAt             (jtCliente.getSelectedRow(), 9).toString());
-//            buttGpGenero.setSelected(jtCliente.getValueAt(jtCliente.getSelectedRow(),6 ));
-//            buttGpGenero.setSelected(jtCliente.getValueAt(jtCliente.getSelectedRow(), 6));
         }
     }//GEN-LAST:event_jtClienteMouseClicked
 

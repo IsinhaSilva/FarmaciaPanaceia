@@ -13,8 +13,8 @@ import javax.swing.JOptionPane;
 import modelo.Produto;
 
 public class ProdutoDAO {
-    private Connection connection;
     
+    private Connection connection;
         int idProduto;
         String nomeProduto;
         int quantidade;
@@ -23,19 +23,6 @@ public class ProdutoDAO {
         
     public ProdutoDAO() {
     this.connection = new ConnectionFactory().getConnection();
-    }
-    
-    public ResultSet listarProduto(){
-        connection = new ConnectionFactory().getConnection();
-        String sql = "SELECT * FROM produto ORDER BY nomeProduto;"; //ordem alfabética 
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            return stmt.executeQuery();
-            
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, "Ocorreu um erro produto no DAO.");
-            return null;
-        }
     }
     
     public void adiciona(Produto produto){
@@ -58,14 +45,14 @@ public class ProdutoDAO {
     }
     
     public void update(Produto produto) {
-        String sql = "UPDATE produto SET nomeProduto=?, valorUnidade=?, "
-            + "quantidade=?, bula=?, WHERE idProduto=?";
+        String sql = "UPDATE produto SET nomeProduto=?, valorUnidade=?, quantidade=?, bula=? WHERE idProduto=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString     (1, produto.getNomeProduto());
             stmt.setDouble     (2, produto.getValorUnidade());
             stmt.setInt        (3, produto.getQuantidade());
             stmt.setString     (4, produto.getBula());
+            stmt.setInt        (5, produto.getIdProduto());
             stmt.execute();
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
             stmt.close();
@@ -116,7 +103,4 @@ public class ProdutoDAO {
         return produtos;
     }
 
-//    public void setVisible(boolean b) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
 }

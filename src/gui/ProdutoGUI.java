@@ -1,12 +1,12 @@
 
 package gui;
 
-import table.TableProdutoGUI;
 import dao.ProdutoDAO;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import modelo.Produto;
+import table.TableVendaGUI;
 
 public class ProdutoGUI extends javax.swing.JFrame {
 
@@ -104,6 +104,11 @@ public class ProdutoGUI extends javax.swing.JFrame {
         btEditar.setText("Editar");
         btEditar.setBorder(null);
         btEditar.setContentAreaFilled(false);
+        btEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEditarActionPerformed(evt);
+            }
+        });
         boder1.add(btEditar);
         btEditar.setBounds(300, 630, 110, 40);
 
@@ -200,6 +205,10 @@ public class ProdutoGUI extends javax.swing.JFrame {
         txtBula.setText("");
      
     }//GEN-LAST:event_btCadastrarActionPerformed
+
+    private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
+        new TableVendaGUI().setVisible(true);
+    }//GEN-LAST:event_btEditarActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
