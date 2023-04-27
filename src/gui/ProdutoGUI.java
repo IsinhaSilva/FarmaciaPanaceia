@@ -6,7 +6,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import modelo.Produto;
-import table.TableVendaGUI;
+import table.TableProdutoGUI;
 
 public class ProdutoGUI extends javax.swing.JFrame {
 
@@ -207,7 +207,7 @@ public class ProdutoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        new TableVendaGUI().setVisible(true);
+        new TableProdutoGUI().setVisible(true);
     }//GEN-LAST:event_btEditarActionPerformed
 
     public static void main(String args[]) {

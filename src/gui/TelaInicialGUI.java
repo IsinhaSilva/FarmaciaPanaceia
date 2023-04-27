@@ -7,7 +7,6 @@ import table.TableProdutoGUI;
 import table.TableFuncionario;
 import gui.ClienteGUI;
 import gui.ProdutoGUI;
-import table.TableVendaGUI;
 
 public class TelaInicialGUI extends javax.swing.JFrame {
 
@@ -45,10 +44,8 @@ public class TelaInicialGUI extends javax.swing.JFrame {
 
         boder1.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnEditarProdutos.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarProdutos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditarProdutos.setText("Consultar");
-        btnEditarProdutos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
         btnEditarProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEditarProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,10 +55,8 @@ public class TelaInicialGUI extends javax.swing.JFrame {
         boder1.add(btnEditarProdutos);
         btnEditarProdutos.setBounds(400, 410, 120, 40);
 
-        btnCadastroProdutos.setBackground(new java.awt.Color(255, 255, 255));
         btnCadastroProdutos.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnCadastroProdutos.setText("Cadastrar");
-        btnCadastroProdutos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
         btnCadastroProdutos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastroProdutos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,10 +74,8 @@ public class TelaInicialGUI extends javax.swing.JFrame {
         boder1.add(jLabel2);
         jLabel2.setBounds(290, 320, 120, 160);
 
-        btnHistorico.setBackground(new java.awt.Color(255, 255, 255));
         btnHistorico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnHistorico.setText("Historico");
-        btnHistorico.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
         btnHistorico.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHistorico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,10 +85,8 @@ public class TelaInicialGUI extends javax.swing.JFrame {
         boder1.add(btnHistorico);
         btnHistorico.setBounds(160, 410, 120, 40);
 
-        btnCaixa.setBackground(new java.awt.Color(255, 255, 255));
         btnCaixa.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnCaixa.setText("Abrir");
-        btnCaixa.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
         btnCaixa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCaixa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,10 +96,8 @@ public class TelaInicialGUI extends javax.swing.JFrame {
         boder1.add(btnCaixa);
         btnCaixa.setBounds(160, 360, 120, 40);
 
-        btnEditarClientes.setBackground(new java.awt.Color(255, 255, 255));
         btnEditarClientes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditarClientes.setText("Editar");
-        btnEditarClientes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
         btnEditarClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEditarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,10 +107,8 @@ public class TelaInicialGUI extends javax.swing.JFrame {
         boder1.add(btnEditarClientes);
         btnEditarClientes.setBounds(630, 410, 120, 40);
 
-        btnCadastroClientes.setBackground(new java.awt.Color(255, 255, 255));
         btnCadastroClientes.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnCadastroClientes.setText("Cadastrar");
-        btnCadastroClientes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153), new java.awt.Color(153, 255, 153)));
         btnCadastroClientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCadastroClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,10 +184,6 @@ public class TelaInicialGUI extends javax.swing.JFrame {
         new ProdutoGUI().setVisible(true);
     }//GEN-LAST:event_btnCadastroProdutosActionPerformed
 
-    private void btnHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricoActionPerformed
-        new TableVendaGUI().setVisible(true);
-    }//GEN-LAST:event_btnHistoricoActionPerformed
-
     private void btnCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCaixaActionPerformed
         new VendaGui().setVisible(true);
     }//GEN-LAST:event_btnCaixaActionPerformed
@@ -212,6 +195,10 @@ public class TelaInicialGUI extends javax.swing.JFrame {
     private void btnCadastroClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroClientesActionPerformed
         new ClienteGUI().setVisible(true);
     }//GEN-LAST:event_btnCadastroClientesActionPerformed
+
+    private void btnHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistoricoActionPerformed
+ 
+    }//GEN-LAST:event_btnHistoricoActionPerformed
 
     /**
      * @param args the command line arguments

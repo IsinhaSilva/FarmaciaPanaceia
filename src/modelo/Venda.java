@@ -2,7 +2,6 @@ package modelo;
 
 public class Venda {
     
-    
     int idVenda;
     int idCliente;
     int idProduto;
@@ -10,8 +9,6 @@ public class Venda {
     String nomeProduto;
     int quantidade;
     double valorUnidade;
-    String dataVenda;
-    String horaVenda;
     String formaPagamento;
     double valorTotal;
 
@@ -43,7 +40,7 @@ public class Venda {
         return nomeCliente;
     }
 
-    public void setNomeCliente(String nomeCliente) {
+    public void setNomeCliente(String cpfCliente) {
         this.nomeCliente = nomeCliente;
     }
 
@@ -67,24 +64,8 @@ public class Venda {
         return valorUnidade;
     }
 
-    public void setValorUnidade(double valorUnitario) {
-        this.valorUnidade = valorUnitario;
-    }
-
-    public String getDataVenda() {
-        return dataVenda;
-    }
-
-    public void setDataVenda(String dataVendas) {
-        this.dataVenda = dataVenda;
-    }
-
-    public String getHoraVenda() {
-        return horaVenda;
-    }
-
-    public void setHoraVenda(String horaVenda) {
-        this.horaVenda = horaVenda;
+    public void setValorUnidade(double valorUnidade) {
+        this.valorUnidade = valorUnidade;
     }
 
     public String getFormaPagamento() {
@@ -102,6 +83,7 @@ public class Venda {
     public void setValorTotal(double valorTotal) {
         this.valorTotal = valorTotal;
     }
+
     
-    
+     
 }

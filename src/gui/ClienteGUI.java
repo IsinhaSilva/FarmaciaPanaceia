@@ -96,7 +96,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         boder1.add(jLabel3);
         jLabel3.setBounds(40, 280, 130, 22);
         boder1.add(jSeparator1);
-        jSeparator1.setBounds(40, 180, 230, 2);
+        jSeparator1.setBounds(40, 180, 230, 3);
 
         txtNomeCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNomeCliente.setText("Digite o nome do cliente");
@@ -119,21 +119,21 @@ public class ClienteGUI extends javax.swing.JFrame {
         boder1.add(txtNomeCliente);
         txtNomeCliente.setBounds(40, 150, 230, 30);
         boder1.add(jSeparator2);
-        jSeparator2.setBounds(40, 260, 230, 2);
+        jSeparator2.setBounds(40, 260, 230, 3);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("CEP:");
         boder1.add(jLabel4);
         jLabel4.setBounds(40, 200, 110, 22);
         boder1.add(jSeparator3);
-        jSeparator3.setBounds(40, 340, 230, 2);
+        jSeparator3.setBounds(40, 340, 230, 3);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Data Nascimeno:");
         boder1.add(jLabel5);
         jLabel5.setBounds(40, 360, 170, 22);
         boder1.add(jSeparator4);
-        jSeparator4.setBounds(40, 420, 230, 2);
+        jSeparator4.setBounds(40, 420, 230, 3);
 
         btEditar.setBackground(new java.awt.Color(0, 52, 39));
         btEditar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -175,21 +175,21 @@ public class ClienteGUI extends javax.swing.JFrame {
         boder1.add(btLimpar);
         btLimpar.setBounds(190, 870, 110, 40);
         boder1.add(jSeparator5);
-        jSeparator5.setBounds(40, 500, 230, 2);
+        jSeparator5.setBounds(40, 500, 230, 3);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Telefone:");
         boder1.add(jLabel7);
         jLabel7.setBounds(40, 440, 160, 22);
         boder1.add(jSeparator6);
-        jSeparator6.setBounds(40, 500, 230, 2);
+        jSeparator6.setBounds(40, 500, 230, 3);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Rua:");
         boder1.add(jLabel8);
         jLabel8.setBounds(40, 590, 160, 22);
         boder1.add(jSeparator7);
-        jSeparator7.setBounds(40, 650, 230, 2);
+        jSeparator7.setBounds(40, 650, 230, 3);
 
         txtRua.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtRua.setText("Digite o nome da rua");
@@ -217,7 +217,7 @@ public class ClienteGUI extends javax.swing.JFrame {
         boder1.add(jLabel9);
         jLabel9.setBounds(70, 770, 160, 22);
         boder1.add(jSeparator8);
-        jSeparator8.setBounds(40, 730, 230, 2);
+        jSeparator8.setBounds(40, 730, 230, 3);
 
         txtNum.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtNum.setText("Digite o número da casa");
@@ -261,7 +261,7 @@ public class ClienteGUI extends javax.swing.JFrame {
             }
         });
         boder1.add(jRadioGeneroFem);
-        jRadioGeneroFem.setBounds(40, 550, 120, 23);
+        jRadioGeneroFem.setBounds(40, 550, 120, 20);
 
         jRadioGeneroMasc.setBackground(new java.awt.Color(255, 255, 255));
         buttGpGenero.add(jRadioGeneroMasc);
@@ -272,7 +272,7 @@ public class ClienteGUI extends javax.swing.JFrame {
             }
         });
         boder1.add(jRadioGeneroMasc);
-        jRadioGeneroMasc.setBounds(170, 550, 100, 23);
+        jRadioGeneroMasc.setBounds(170, 550, 100, 20);
 
         jRadioConv.setBackground(new java.awt.Color(255, 255, 255));
         jRadioConv.addActionListener(new java.awt.event.ActionListener() {
@@ -281,7 +281,7 @@ public class ClienteGUI extends javax.swing.JFrame {
             }
         });
         boder1.add(jRadioConv);
-        jRadioConv.setBounds(40, 770, 21, 21);
+        jRadioConv.setBounds(40, 770, 19, 19);
 
         formattedDataNasc.setBorder(null);
         try {
